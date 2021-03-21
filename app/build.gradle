@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id "kotlin-kapt"
+    id "androidx.navigation.safeargs"
 }
 
 android {
@@ -30,6 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    viewBinding{
+        enabled true
+    }
 }
 
 dependencies {
@@ -44,10 +49,26 @@ dependencies {
     //it is available in /test packages
     testImplementation 'junit:junit:4.13.2'
     testImplementation "com.google.truth:truth:1.1.2"
+    //room testing
+    testImplementation "androidx.room:room-testing:2.2.6"
 
 
     //when you define androidTestImplementation means
     //it is available in /androidTest packages
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation "com.google.truth:truth:1.1.2"
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.4"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.4"
+
+    //viewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0"
+
+    //room
+    implementation "androidx.room:room-runtime:2.2.6"
+    kapt "androidx.room:room-compiler:2.2.6"
+    implementation "androidx.room:room-ktx:2.2.6"
+
 }
