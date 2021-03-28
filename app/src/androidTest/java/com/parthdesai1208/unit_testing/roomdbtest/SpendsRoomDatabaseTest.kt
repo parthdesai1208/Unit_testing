@@ -18,13 +18,13 @@ import java.util.*
 
 //here we use AndroidJUnit4 class because we need android context/device to test room db
 @RunWith(AndroidJUnit4::class)
-class SpendsRoomDatabaseTest : TestCase() {
+class SpendsRoomDatabaseTest {
 
     private lateinit var db: SpendsDatabase
     private lateinit var dao: SpendDao
 
     @Before
-    public override fun setUp() {
+    fun setUp() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         db = Room.inMemoryDatabaseBuilder(context, SpendsDatabase::class.java).build()
         //inMemoryDatabaseBuilder means temporary database
